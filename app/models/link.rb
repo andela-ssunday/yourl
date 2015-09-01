@@ -3,10 +3,11 @@ class Link < ActiveRecord::Base
   validates :short_url, uniqueness: :true
 
   before_save :generate_short_url
+  before_save :url_check
 
   private
     def url_check
-      self.long_url = (self.long_url[0..4]=="http") ? "http://"+self.long_url : self.long_url  
+      self.long_url = (self.long_url[0..4]=="http") ? self.long_url : "http://"+self.long_url
     end
 
     def generate_short_url
