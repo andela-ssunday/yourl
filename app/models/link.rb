@@ -5,6 +5,10 @@ class Link < ActiveRecord::Base
   before_save :generate_short_url
 
   private
+    def url_check
+      self.long_url = (self.long_url[0..4]=="http") ? self.long_url : "http://"+self.long_url
+    end
+
     def generate_short_url
       a = rand(1000..9000).to_s.split("")
       c = a.map { |i| ('a'..'z').to_a[i.to_i]}
