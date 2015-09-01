@@ -7,7 +7,7 @@ class Link < ActiveRecord::Base
 
   private
     def url_check
-      self.long_url = (self.long_url[0..4]=="http") ? self.long_url : "http://"+self.long_url
+      self.long_url = (self.long_url[0..3]=="http") ? self.long_url : "http://"+self.long_url
     end
 
     def generate_short_url
