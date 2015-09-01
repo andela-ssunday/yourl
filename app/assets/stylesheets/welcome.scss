@@ -1,0 +1,26 @@
+// Place all the styles related to the Welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.center{
+  text-align: center;
+}
+.header{
+  margin: 10% 0 5% 0;
+}
+.our-form-control{
+  width:400px !important;
+}
+
+.shrink{
+  margin-left: 32% !important;
+}
+
+.short_url{
+  margin-top: 20px;
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 20px 0;
+  background-color: azure;
+  font-size: 30px;
+}
