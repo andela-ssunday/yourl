@@ -22,19 +22,22 @@
     <h1 class="center header">YouRL</h1>
     <div class="row">
       <div class="col-md-5 shrink form-inline" >
-          <%= form_for(Link.new) do |f| %>
+          <%= form_for(Link.new, remote: :true) do |f| %>
           <div class="form-group">
-            <%= f.text_field :long_url, class: "form-control our-form-control", id: "exampleInputEmail1",placeholder: "Enter long url"%>
+            <%= f.text_field :long_url, class: "form-control our-form-control", id: "exampleInputEmail1",placeholder: "Enter long url", required: :true%>
           </div>
           <%= f.submit class: "btn btn-primary"%>
           <% end %>
-
-          <% unless flash[:short_url].nil? %>
-            <div class="short_url">
-              <%= gethost+flash[:short_url] %>
+          <div id="loader">
+            <div id="loader2">
+              <% unless flash[:short_url].nil? %>
+                <div class="short_url">
+                  <%= gethost+flash[:short_url] %>
+                </div>
+              <% end %>
             </div>
-          <% end %>
-      </div
-    </div>
+          </div>
+        </div>
+      </div>
   </div>
 </div>

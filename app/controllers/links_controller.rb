@@ -1,3 +1,4 @@
+require 'pry'
 class LinksController < ApplicationController
   # respond_to :js
   before_filter :set_links, :only=>[:show]
@@ -17,9 +18,9 @@ class LinksController < ApplicationController
     @link = Link.new(link_params)
     if @link.save
       flash[:short_url] = @link.short_url
-      redirect_to welcome_index_path
+      render welcome_index_path
     else
-      redirect_to welcome_index_path
+      render welcome_index_path
     end
   end
 
