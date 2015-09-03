@@ -6,6 +6,8 @@ class WelcomeController < ApplicationController
   def show
     if !@link.nil?
       redirect_to @link.long_url
+    else
+      render welcome_index_path
     end
   end
 

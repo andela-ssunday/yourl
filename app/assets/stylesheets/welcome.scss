@@ -1,9 +1,17 @@
 // Place all the styles related to the Welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body{
+  font-family: Lato !important;
+}
 .center{
   text-align: center;
 }
+.sign-up-form{
+    width:60%;
+    margin: 0 auto;
+}
+
 .header{
   margin: 10% 0 5% 0;
 }
@@ -12,9 +20,12 @@
 }
 
 .shrink{
-  margin-left: 32% !important;
+  // margin-left: 32% !important;
+  margin: 0 auto !important;
 }
-
+.col-md-5{
+  float: none !important;
+}
 .short_url{
   margin-top: 20px;
   text-align: center;
@@ -23,4 +34,11 @@
   padding: 20px 0;
   background-color: azure;
   font-size: 30px;
+  width: 100%
+}
+
+.user-form{
+  width: 215px;
+  border: none !important;
+  padding: 20px !important;
 }

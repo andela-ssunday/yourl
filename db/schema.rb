@@ -11,11 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150831010851) do
+ActiveRecord::Schema.define(version: 20150903145449) do
 
   create_table "links", force: :cascade do |t|
     t.string   "short_url"
     t.string   "long_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "username"
+    t.string   "email"
+    t.string   "password"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.datetime "last_sign_in_at"
+    t.integer  "sign_in_count"
+  end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
+
+  create_table "views", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

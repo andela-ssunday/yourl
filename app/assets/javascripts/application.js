@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require bootstrap-sprockets
 //= require_tree .
 
 
@@ -22,3 +23,11 @@
 //     var $btn = $(this).button('loading');
 // })
 // });
+// $(document).ready(function(){
+//   $('.dropdown').mouseenter(function(){
+//     $(".dropdown-menu").css("display", "block")
+//   })
+//   $('.dropdown').mouseleave(function(){
+//     $(".dropdown-menu").css("display", "none")
+//   })
+// })
