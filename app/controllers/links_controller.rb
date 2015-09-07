@@ -1,5 +1,4 @@
-  require 'open-uri'
-require 'pry'
+
 class LinksController < ApplicationController
   # respond_to :js
   before_filter :set_links, :only=>[:show]

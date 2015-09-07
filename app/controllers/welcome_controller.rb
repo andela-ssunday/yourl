@@ -1,4 +1,3 @@
-require 'pry'
 class WelcomeController < ApplicationController
   before_filter :set_links, :only=>[:show]
 
