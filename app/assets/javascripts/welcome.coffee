@@ -3,5 +3,5 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 $ ->
   $("form[data-remote]").on "ajax:success", (e, data, status, xhr) ->
-    $("#loader").load(location.href + " #loader2");
+    $(".list-group").load(location.href + " .list-group2");
     # $("#loader2").fadeIn("slow")

@@ -1,5 +1,6 @@
 class Link < ActiveRecord::Base
   belongs_to :user
+  has_many :views
   validates :long_url, presence: :true
   validates :short_url, uniqueness: :true
 
@@ -16,4 +17,7 @@ class Link < ActiveRecord::Base
       c = a.map { |i| ('a'..'z').to_a[i.to_i]}
       self.short_url = c.join
     end
+
+    scope :recent_links, -> {where(user_id: 0).limit(5).order('created_at desc').group('short_url')}
+    scope :top_links, -> {where(user_id: 0).order('views_count desc').limit(5)}
 end

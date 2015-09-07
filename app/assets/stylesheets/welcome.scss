@@ -36,9 +36,17 @@ body{
   font-size: 30px;
   width: 100%
 }
-
+.form-control{
+  margin-bottom: 30px;
+}
 .user-form{
   width: 215px;
   border: none !important;
   padding: 20px !important;
+}
+.tabel{
+  float:left;
+}
+.tabel2{
+  float:right
 }

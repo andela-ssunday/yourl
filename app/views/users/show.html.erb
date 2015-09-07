@@ -1,2 +1,35 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div clas="container-fluid">
+<%= render partial: "layouts/nav"%>
+
+  <div class="container">
+    <div class="row" style="height:600px">
+      <div class="col-md-6 full-height">
+        <div class="col-md-5 form-inline" style="margin-left: -15px">
+            <%= form_for(Link.new, remote: :true) do |f| %>
+            <div class="input-group">
+              <%= f.text_field :long_url, class: "form-control our-form-control", id: "exampleInputEmail1",placeholder: "Enter long url", required: :true%>
+              <span class="input-group-btn">
+                <!-- <button class="btn btn-primary" type="button">Create Link</button> -->
+                <%= f.submit class: "btn btn-primary"%>
+              </span>
+            </div>
+            <% end %>
+          </div>
+          <div class="list-group header">
+            <div class="list-group2">
+
+              <% if @user.links %>
+              <%#="<span class='badge'> pluralize link.views.count, 'view' </span>"%>
+                <% @user.links.each do |link|%>
+                  <%=link_to "#{gethost+link.short_url}", "/links/#{link.id}",remote: true, class:"list-group-item" %>
+                <%end%>
+              <% end %>
+            </div>
+          </div>
+      </div>
+      <%#= binding.pry%>
+      <div class="col-md-6 full-height link_info" id="link_info" style="background-color:#E7E7EA">
+      </div>
+    </div>
+  </div>
+</div>

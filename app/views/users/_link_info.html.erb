@@ -1,0 +1,40 @@
+  <div class="wrap">
+    <div class="link-info">
+      <!-- <h2>Google</h2> -->
+      <% if flash[:link_info]%>
+        <% @link_info = flash[:link_info][0]%>
+
+          <h4><%= @link_info["short_url"] %></h4>
+          <h6><%= @link_info["long_url"] %></h6>
+          <h5>Created At: <%= @link_info["created_at"] %><h5>
+            <div class="traffic">
+              <span style="font-size:40px"><%= (@link_info["views_count"].nil?) ? 0 : @link_info["views_count"] %></span> click(s) on this site
+            </div>
+        </div>
+        <!-- <div class="ip">
+          <span>Top countries</span>
+          <ul>
+            <li>Nigeria</li>
+            <li>Nigeria</li>
+            <li>Nigeria</li>
+            <li>Nigeria</li>
+            <li>Nigeria</li>
+          </ul>
+        </div> -->
+        <div class="ref" style="float:right !important">
+          <% if flash[:link_views_info] %>
+            <span>Top referrals</span>
+            <ul>
+              <% flash[:link_views_info].each do |link| %>
+
+                <li><%= (link["referrer"].nil?) ? 'direct' : link["referrer"] %></li>
+                <!-- <li>Nigeria</li>
+                <li>Nigeria</li>
+                <li>Nigeria</li>
+                <li>Nigeria</li> -->
+              <%end%>
+            </ul>
+          <%end%>
+        </div>
+    <%end%>
+  </div>

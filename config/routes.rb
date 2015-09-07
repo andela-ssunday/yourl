@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'sessions/create'
+
+  get 'sessions/new'
+
   get 'views/index'
 
   get 'views/new'
@@ -8,15 +12,8 @@ Rails.application.routes.draw do
 
   get 'views/destroy'
 
-  get 'users/show'
-
-  get 'users/new'
-
-  get 'users/create'
-
-  get 'users/destroy'
-
-  get 'users/update'
+  resources :sessions
+  resources :users
 
   resources :links
   get 'welcome/index'
@@ -29,6 +26,8 @@ Rails.application.routes.draw do
 
   get "/:id" => 'welcome#show'
   get 'welcome/signup', as: 'sign_up'
+
+  # get 'sessions/destroy' => 'sessions#destroy'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
