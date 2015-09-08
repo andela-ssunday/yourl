@@ -18,7 +18,7 @@
             <div id="loader">
               <div id="loader2">
                 <% unless flash[:short_url].nil? %>
-                  <input type="text" disabled="disabled" class="short_url" value=<%= gethost+flash[:short_url] %> >
+                  <input type="text" disabled="disabled" name="short_url" class="short_url" value=<%= gethost+flash[:short_url] %> >
                 <% end %>
               </div>
             </div>

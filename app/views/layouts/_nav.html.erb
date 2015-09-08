@@ -12,13 +12,15 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
       <ul class="nav navbar-nav navbar-left">
-        <h3>YouRl</h3>
+        <% unless controller_name=="welcome" && action_name=="index"%>
+          <h3><%= link_to "YouRl", root_path %></h3>
+        <%end%>
       </ul>
-      
+
       <% unless current_user %>
         <ul class="nav navbar-nav navbar-right">
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Login <span class="caret"></span></a>
+            <a href="#" class="dropdown-toggle our-focus" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color:white">Login <span class="caret"></span></a>
             <ul class="dropdown-menu user-form">
               <%= form_tag sessions_path do %>
                 <div class="form-group">
@@ -36,12 +38,21 @@
           </li>
         </ul>
 
-        <ul class="nav navbar-nav navbar-right"">
-          <li><a href="<%= sign_up_path %>">Signup</a></li>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="<%= sign_up_path %>" style='color:white'>Signup</a></li>
         </ul>
       <%else%>
         <ul class="nav navbar-nav navbar-right" style="margin-top:20px">
-          <li>Welcome, <%=link_to "Logout", "#{sessions_path}/#{session[:user_id]}", :method => :delete, style: "display:inline"%></li>
+          <li role="presentation" class="dropdown">
+            Welcome,
+            <a class="dropdown-toggle white our-focus" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+              <%= session[:username] %> <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <%=link_to "Profile", "../users/#{session[:user_id]}", style: "display:block; color:black !important; text-align:center !important; text-decoration:none !important; margin-bottom:10px"%>
+              <%=link_to "Logout", "#{sessions_path}/#{session[:user_id]}", :method => :delete, style: "display:block; color:black !important; text-align:center !important; text-decoration:none !important", class: "black"%>
+            </ul>
+          </li>
         </ul>
       <% end %>
     </div><!-- /.navbar-collapse -->
