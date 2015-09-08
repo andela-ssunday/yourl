@@ -30,6 +30,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'faraday', '~> 0.9.1'
 gem 'geokit-rails', github: 'geokit/geokit-rails'
 
+gem 'geocoder'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

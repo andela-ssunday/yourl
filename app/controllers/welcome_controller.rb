@@ -17,7 +17,8 @@ class WelcomeController < ApplicationController
   private
     def set_links
       @link = Link.find_by short_url: params[:id] || nil
-      location = Geokit::Geocoders::GoogleGeocoder.geocode(request.remote_ip)
-      View.create(link_id: @link.id, referrer: request.referrer, request_ip: request.remote_ip, country: location.country)
+      # location = Geokit::Geocoders::GoogleGeocoder.geocode('197.253.36.22')
+      p request.location.country_code
+      View.create(link_id: @link.id, referrer: request.referrer, request_ip: request.remote_ip, country: request.location.country)
     end
 end
