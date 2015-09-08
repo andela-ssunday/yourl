@@ -11,30 +11,25 @@
               <span style="font-size:40px"><%= (@link_info["views_count"].nil?) ? 0 : @link_info["views_count"] %></span> click(s) on this site
             </div>
         </div>
-        <!-- <div class="ip">
-          <span>Top countries</span>
-          <ul>
-            <li>Nigeria</li>
-            <li>Nigeria</li>
-            <li>Nigeria</li>
-            <li>Nigeria</li>
-            <li>Nigeria</li>
-          </ul>
-        </div> -->
-        <div class="ref" style="float:right !important">
-          <% if flash[:link_views_info] %>
-            <span>Top referrals</span>
-            <ul>
-              <% flash[:link_views_info].each do |link| %>
-
-                <li><%= (link["referrer"].nil?) ? 'direct' : link["referrer"] %></li>
-                <!-- <li>Nigeria</li>
-                <li>Nigeria</li>
-                <li>Nigeria</li>
-                <li>Nigeria</li> -->
-              <%end%>
-            </ul>
-          <%end%>
-        </div>
+        <% if flash[:country].size>0 %>
+          <div class="ip">
+              <span>Top countries</span>
+              <ul>
+                <% flash[:country].each do |link| %>
+                  <li><%= (link["country"].nil?) ? 'direct' : link["country"] %></li>
+                <%end%>
+              </ul>
+          </div>
+        <%end%>
+        <% if flash[:referrer].size>0 %>
+          <div class="ref">
+              <span>Top referrals</span>
+              <ul>
+                <% flash[:referrer].each do |link| %>
+                  <li><%= (link["referrer"].nil?) ? 'direct' : link["referrer"] %></li>
+                <%end%>
+              </ul>
+          </div>
+        <%end%>
     <%end%>
   </div>

@@ -1,4 +1,5 @@
-
+  require 'open-uri'
+require 'pry'
 class LinksController < ApplicationController
   # respond_to :js
   before_filter :set_links, :only=>[:show]
@@ -8,9 +9,10 @@ class LinksController < ApplicationController
   def show
 
     flash[:link_info] = Link.where(id: params[:id], user_id: session[:user_id]) if current_user
-    flash[:link_views_info] = Link.find(params[:id]).views.group('referrer')
+    flash[:country] = View.select('country, count("id") as count').where(link_id: params[:id]).order("count desc").group('country')
+    flash[:referrer] = View.select('referrer, count("id") as count').where(link_id: params[:id]).order("count desc").group('referrer')
     # if !@link.nil?
-      redirect_to "/users/"+(session[:user_id]).to_s
+    redirect_to "/users/"+(session[:user_id]).to_s
     # end
   end
 
