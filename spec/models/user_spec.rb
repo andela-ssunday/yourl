@@ -10,5 +10,6 @@ RSpec.describe User, type: :model do
     expect(ore).to be_valid
     expect(alex).to be_valid
     expect(kay).not_to be_valid
+    
   end
 end

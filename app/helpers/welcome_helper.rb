@@ -1,6 +1,6 @@
 module WelcomeHelper
   def gethost
-    host = (request.host=='localhost') ? request.host+":3000" : request.host
+    host = (request.host=='localhost') ? request.host+":"+request.env["SERVER_PORT"] : request.host
     host+"/"
   end
 end
