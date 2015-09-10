@@ -17,7 +17,7 @@ class LinksController < ApplicationController
 
   def check_referrer
     if request.env["HTTP_REFERER"].include? 'users'
-       redirect_to user_path(session[:user_id])
+       redirect_to users_path+"/#{session[:user_id]}"
      else
        render welcome_index_path
     end
@@ -29,10 +29,13 @@ class LinksController < ApplicationController
     @user_link = find_user_links(@link.long_url) if current_user
     unless @user_link
       if @link.save
+        p "hello"
+        flash[:success] = "Url Successfully shortened"
         flash[:short_url] = @link.short_url
         check_referrer
       end
     else
+      flash[:success] = "Url Successfully shortened"
       flash[:short_url] = @user_link.short_url
       check_referrer
     end

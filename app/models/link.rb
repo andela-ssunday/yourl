@@ -24,6 +24,6 @@ class Link < ActiveRecord::Base
     end
 
 
-    scope :recent_links, ->{select('short_url, MAX(id) as max_id').where(user_id: 0).order('max_id desc').group('short_url').limit(5)}
-    scope :top_links, ->{select('short_url, MAX(views_count) as count').where(user_id: 0).order('count desc').group('short_url').limit(5)}
+    scope :recent_links, ->{select('short_url').where(user_id: 0).order('id desc').limit(5)}
+    scope :top_links, ->{select('short_url').where(user_id: 0).order('views_count desc').limit(5)}
 end

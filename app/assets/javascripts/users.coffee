@@ -4,3 +4,4 @@
 $ ->
   $("form[data-remote]").on "ajax:success", (e, data, status, xhr) ->
     $("#loader").load(location.href + " #loader2");
+  $(".short_url").fadeOut(30000)

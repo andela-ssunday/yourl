@@ -9,10 +9,10 @@ RSpec.feature "SignUps", type: :feature do
     fill_in "user[password]", with: "password"
 
     click_button "Sign in"
-
-    expect(User.last.email).to eq("me@email.com")
-    expect(User.last.username).to eq("me")
-    expect(User.last.password).not_to eq("password")
+    user = User.last
+    expect(user.email).to eq("me@email.com")
+    expect(user.username).to eq("me")
+    expect(user.password).not_to eq("password")
 
   end
 end

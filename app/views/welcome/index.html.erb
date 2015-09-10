@@ -2,7 +2,7 @@
   <%= render partial: "layouts/nav"%>
 
   <div class="container">
-    <div class="body" style="height:350px">
+    <div class="body" style="margin-bottom:200px">
       <% if flash[:notice] %>
         <div class="alert alert-danger" role="alert">
           <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
@@ -10,6 +10,11 @@
           <%= flash[:notice] %>
         </div>
       <%end%>
+        <div class="alert alert-success succ" role="alert" style="display:none">
+          <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+          <span class="sr-only">Success:</span>
+          Link Shortened Successfully
+        </div>
       <h1 class="center header">YouRL</h1>
       <div class="row">
         <div class="col-md-5 shrink form-inline" >

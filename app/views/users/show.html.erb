@@ -4,7 +4,7 @@
     <div class="row" style="height:600px">
       <div class="col-md-6 full-height">
         <div class="col-md-5 form-inline" style="margin-left: -15px">
-            <%= form_for(Link.new, remote: :true) do |f| %>
+            <%= form_for(Link.new) do |f| %>
             <div class="input-group">
               <%= f.text_field :long_url, class: "form-control our-form-control", id: "exampleInputEmail1",placeholder: "Enter long url", required: :true%>
               <span class="input-group-btn">
@@ -13,12 +13,13 @@
             </div>
             <% end %>
           </div>
-          
+          <% unless flash[:short_url].nil? %>
+            <input type="text" disabled="disabled" name="short_url" class="short_url" style="width: 100% !important" value=<%= gethost+flash[:short_url] %> >
+          <% end %>
+
           <div class="header">
             <div class="list-group">
-                    <!-- <span class="three-quarters-loader">
-                      Loading…
-                    </span> -->
+
               <% if @user.links %>
                 <% @user.links.each do |link|%>
                   <%=link_to "#{gethost+link.short_url}", "/links/#{link.id}",remote: true, class:"list-group-item" %>

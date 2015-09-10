@@ -7,11 +7,7 @@ class WelcomeController < ApplicationController
   end
 
   def show
-    if !@link.nil?
-      redirect_to @link.long_url
-    else
-      render welcome_index_path
-    end
+    redirect_to @link.long_url
   end
 
   private
@@ -20,13 +16,12 @@ class WelcomeController < ApplicationController
       if @link
         View.create(link_id: @link.id, referrer: request.referrer, request_ip: request.remote_ip, country: request.location.country)
       else
-        no_record_error 
+        no_record_error
       end
     end
 
     def no_record_error
       flash[:notice] = "No record Found"
       redirect_to root_path
-      return
     end
 end

@@ -4,4 +4,5 @@
 $ ->
   $("form[data-remote]").on "ajax:success", (e, data, status, xhr) ->
     $(".list-group").load(location.href + " .list-group2");
-    # $("#loader2").fadeIn("slow")
+    $(".succ").css('display', 'block')
+    $(".succ").fadeOut(5000)
