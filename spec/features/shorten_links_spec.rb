@@ -16,11 +16,11 @@ RSpec.feature "ShortenLinks", type: :feature do
 
     expect(page).to have_selector(".short_url")
 
+    path = find(:xpath, "//input[@class='short_url']").value
+    link = path[0..-7]+":31337"+path[-6..-1]
 
-    link = (find(:xpath, "//input[@class='short_url']").value).gsub("/", ":31337/")
 
-
-    visit "http://"+link
+    visit link
 
     expect(page).to have_content("Google")
 

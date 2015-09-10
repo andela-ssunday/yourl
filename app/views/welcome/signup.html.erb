@@ -3,6 +3,13 @@
 
   <!-- <div class="main"> -->
     <div class="container">
+      <% if flash[:notice] %>
+        <div class="alert alert-danger" role="alert">
+          <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+          <span class="sr-only">Error:</span>
+          <%= flash[:notice] %>
+        </div>
+      <%end%>
       <div class='sign-up-form'>
         <div class="center header"><h2>Signup</h2></div>
         <%= form_for User.new do |f| %>

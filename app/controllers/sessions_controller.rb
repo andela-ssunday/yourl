@@ -10,7 +10,8 @@ class SessionsController < ApplicationController
       session[:username] = user.username
       redirect_to user, notice: "Welcome"
     else
-      flash.now.alert = "Wrong cridentials"
+      flash[:notice] = "Wrong cridentials"
+      redirect_to root_path
     end
   end
 

@@ -1,7 +1,7 @@
 
 class LinksController < ApplicationController
   before_filter :set_links, :only=>[:show]
-  
+
   def index
   end
 

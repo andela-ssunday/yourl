@@ -16,7 +16,17 @@ class WelcomeController < ApplicationController
 
   private
     def set_links
-      @link = Link.find_by short_url: params[:id] || nil
-      View.create(link_id: @link.id, referrer: request.referrer, request_ip: request.remote_ip, country: request.location.country)
+      @link = Link.find_by short_url: params[:id]
+      if @link
+        View.create(link_id: @link.id, referrer: request.referrer, request_ip: request.remote_ip, country: request.location.country)
+      else
+        no_record_error 
+      end
+    end
+
+    def no_record_error
+      flash[:notice] = "No record Found"
+      redirect_to root_path
+      return
     end
 end

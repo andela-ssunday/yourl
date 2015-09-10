@@ -4,7 +4,7 @@
       <% if flash[:link_info]%>
         <% @link_info = flash[:link_info][0]%>
 
-          <h4><%= link_to "#{gethost+@link_info['short_url']}", gethost+@link_info["short_url"], 'data-turbolinks-track' => false, remote: false %></h4>
+          <h4><%= link_to "#{gethost+@link_info['short_url']}", gethost+@link_info["short_url"], 'data-turbolinks-track' => false, remote: false, target: '_blank' %></h4>
           <h5><%= @link_info["long_url"] %></h5>
           <h6>Created at: <%= time_ago_in_words(@link_info["created_at"]) %> ago<h6>
         </div>
