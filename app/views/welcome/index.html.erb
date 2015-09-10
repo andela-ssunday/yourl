@@ -17,7 +17,6 @@
             <div class="input-group">
               <%= f.text_field :long_url, class: "form-control our-form-control", id: "exampleInputEmail1",placeholder: "Enter long url", required: :true%>
               <span class="input-group-btn">
-                <!-- <button class="btn btn-primary" type="button">Create Link</button> -->
                 <%= f.submit class: "btn btn-primary"%>
               </span>
             </div>
@@ -26,7 +25,7 @@
               <div id="loader2">
 
                 <% unless flash[:short_url].nil? %>
-                  <input type="text" disabled="disabled" name="short_url" class="short_url" value=<%= gethost+flash[:short_url] %> >
+                  <input type="text" disabled="disabled" name="short_url" class="short_url" style="width: 128% !important" value=<%= gethost+flash[:short_url] %> >
                 <% end %>
               </div>
             </div>
@@ -52,7 +51,7 @@
                   <li class="list-group-item"><h4><%= gethost+link.short_url %></h4></li>
                 <%end%>
           <%else%>
-              <li>No top links yet</li>
+              <li>No links yet</li>
           <%end%>
         </div>
         <div role="tabpanel" class="tab-pane" id="profile">
@@ -61,7 +60,7 @@
                   <li class="list-group-item"><h4><%= gethost+link.short_url %></h4></li>
                 <%end%>
           <%else%>
-              <li>No top links yet</li>
+              <li>No links yet</li>
           <%end%>
         </div>
       </div>
