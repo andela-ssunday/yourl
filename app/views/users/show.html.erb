@@ -23,7 +23,7 @@
               <% if @user.links %>
                 <% @user.links.each do |link|%>
                 <% #binding.pry %>
-                  <%=link_to "#{gethost+link.short_url}", "/links/#{link.id}",remote: true, class:( (flash[:link_info][0]["id"]==link.id) ? "list-group-item show active" : "list-group-item show") %>
+                  <%=link_to "#{gethost+link.short_url}", "/links/#{link.id}",remote: true, class:( (flash[:link_info][0]["id"]==link.id) ? "list-group-item show my-active" : "list-group-item show") %>
 
 
                 <%end%>

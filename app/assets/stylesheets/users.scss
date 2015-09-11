@@ -53,6 +53,6 @@ div#link_info{
 .list-group-item:first-child{
   float:none !important;
 }
-.list-group-item:focus{
-  background-color: whitesmoke !important;
+.list-group-item.show:focus{
+  background-color: #6399C7 !important;
 }

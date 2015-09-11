@@ -19,7 +19,6 @@
 
 
 $(document).ready(function(){
-
   $(".show").click(function(){
     $(".wrap").css("display", "hide")
     $(".spinner").css("display", "block")
@@ -30,7 +29,7 @@ $(document).ready(function(){
   })
 
   $(".list-group-item.show").click(function(){
-    // $(".list-group-item.show").removeClass('active')
-    $(this).addClass('active')
+    $(".list-group-item.show").removeClass('my-active')
+    $(this).addClass('my-active')
   })
 })
