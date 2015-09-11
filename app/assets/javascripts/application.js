@@ -18,16 +18,10 @@
 
 
 
-// $(document).ready(function(){
-//   $('#shorten').on('click', function () {
-//     var $btn = $(this).button('loading');
-// })
-// });
-// $(document).ready(function(){
-//   $('.dropdown').mouseenter(function(){
-//     $(".dropdown-menu").css("display", "block")
-//   })
-//   $('.dropdown').mouseleave(function(){
-//     $(".dropdown-menu").css("display", "none")
-//   })
-// })
+$(document).ready(function(){
+
+  $(".show").click(function(){
+    $(".spinner").css("display", "block")
+  })
+
+})
