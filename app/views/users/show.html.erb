@@ -24,6 +24,7 @@
                 <% @user.links.each do |link|%>
                   <%=link_to "#{gethost+link.short_url}", "/links/#{link.id}",remote: true, class:"list-group-item show" %>
 
+
                 <%end%>
               <% end %>
             </div>
