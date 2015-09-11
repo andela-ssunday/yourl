@@ -20,7 +20,7 @@
 
 $(document).ready(function(){
   $(".show").click(function(){
-    $(".wrap").css("display", "hide")
+    $(".wrap").css("display", "none")
     $(".spinner").css("display", "block")
   })
 
