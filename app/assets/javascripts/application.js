@@ -24,4 +24,9 @@ $(document).ready(function(){
     $(".spinner").css("display", "block")
   })
 
+  $(".index").click(function(){
+    $(".spinner").css("display", "block")
+  })
+
+  $(".list-group-item.show:first-child").addClass('active')
 })

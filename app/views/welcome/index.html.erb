@@ -22,13 +22,16 @@
             <div class="input-group">
               <%= f.text_field :long_url, class: "form-control our-form-control", id: "exampleInputEmail1",placeholder: "Enter long url", required: :true%>
               <span class="input-group-btn">
-                <%= f.submit class: "btn btn-primary"%>
+                <%= f.submit class: "btn btn-primary index"%>
               </span>
             </div>
             <% end %>
             <div id="loader">
+              <div class="spinner" style="margin-top:20px;display:none">
+                <div class="dot1"></div>
+                <div class="dot2"></div>
+              </div>
               <div id="loader2">
-
                 <% unless flash[:short_url].nil? %>
                   <div name="short_url" class="short_url" style="width: 128% !important" > <%=link_to  "#{gethost+flash[:short_url]}", gethost+flash[:short_url], target: '_blank', style: "text-decoration:none" %> <span class="glyphicon glyphicon-share-alt sm" aria-hidden="true"></span></div>
                 <% end %>

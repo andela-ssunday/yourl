@@ -2,6 +2,13 @@ class UsersController < ApplicationController
   before_filter :set_user, only: [:show]
 
   def show
+    @user_link = @user.links.first
+    p @user_link.id
+    # flash[:link_info] = Link.link_info(@user_link.id, session[:user_id]) if current_user
+    @countries = View.top_countries(@user_link.id)
+    p @countries
+    @referrers =  View.top_referrers(@user_link.id)
+    p @referrers
   end
 
   def new

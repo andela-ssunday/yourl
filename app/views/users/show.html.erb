@@ -35,6 +35,44 @@
           <div class="dot1"></div>
           <div class="dot2"></div>
         </div>
+
+
+        <div class="wrap" >
+            <div class="link-info">
+            <!-- <h2>Google</h2> -->
+            <% if @user_link %>
+                <h4><%= link_to "#{gethost+@user_link.short_url}", gethost+@user_link.short_url, 'data-turbolinks-track' => false, remote: false, target: '_blank' %></h4>
+                <h5 style="word-wrap:break-word"><%= (@user_link.long_url) %></h5>
+                <h6>Created at: <%= time_ago_in_words(@user_link.created_at) %> ago<h6>
+              </div>
+              <div class="traffic">
+                <h5>Page views</h5>
+                <span style="font-size:40px"><%= (@user_link.views_count.nil?) ? 0 : @user_link.views_count %></span>
+              </div>
+              <% if @countries.size>0 %>
+                <div class="ip">
+                    <span style="text-align:center">Top countries</span>
+                    <ul>
+                      <% @countries.each do |link| %>
+                        <li><%= (link["country"].nil?) ? 'direct' : link["country"] %> <%= "(#{link['count']})"%></li>
+                      <%end%>
+                    </ul>
+                </div>
+              <%end%>
+              <% if @referrers.size>0 %>
+                <div class="ref">
+                    <span style="text-align:center">Top referrals</span>
+                    <ul>
+                      <% @referrers.each do |link| %>
+                        <li><%= (link["referrer"].nil?) ? 'direct' : link["referrer"] %></li>
+                      <%end%>
+                    </ul>
+                </div>
+              <%end%>
+          <%end%>
+        </div>
+
+
       </div>
     </div>
   </div>
