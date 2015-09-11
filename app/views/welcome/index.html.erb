@@ -30,7 +30,7 @@
               <div id="loader2">
 
                 <% unless flash[:short_url].nil? %>
-                  <input type="text" disabled="disabled" name="short_url" class="short_url" style="width: 128% !important" value=<%= gethost+flash[:short_url] %> >
+                  <div name="short_url" class="short_url" style="width: 128% !important" > <%=link_to  "#{gethost+flash[:short_url]}", gethost+flash[:short_url], target: '_blank', style: "text-decoration:none" %> <span class="glyphicon glyphicon-share-alt sm" aria-hidden="true"></span></div>
                 <% end %>
               </div>
             </div>
@@ -53,7 +53,7 @@
         <div role="tabpanel" class="tab-pane active" id="home">
           <% if @top_links %>
               <% @top_links.each do |link|%>
-                  <li class="list-group-item"><h4><%= gethost+link.short_url %></h4></li>
+                  <li class="list-group-item"><h4><%=link_to "#{gethost+link.short_url}", gethost+link.short_url, target: '_blank', style: "text-decoration:none" %></h4></li>
                 <%end%>
           <%else%>
               <li>No links yet</li>
@@ -62,7 +62,7 @@
         <div role="tabpanel" class="tab-pane" id="profile">
           <% if @recents %>
               <% @recents.each do |link|%>
-                  <li class="list-group-item"><h4><%= gethost+link.short_url %></h4></li>
+                  <li class="list-group-item"><h4><%= link_to "#{gethost+link.short_url}", gethost+link.short_url, target: '_blank', style: "text-decoration:none"  %></h4></li>
                 <%end%>
           <%else%>
               <li>No links yet</li>
