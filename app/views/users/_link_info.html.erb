@@ -2,6 +2,7 @@
       <div class="link-info">
       <!-- <h2>Google</h2> -->
       <% if flash[:link_info]%>
+      <%#binding.pry%>
         <% @link_info = flash[:link_info][0]%>
 
           <h4><%= link_to "#{gethost+@link_info['short_url']}", gethost+@link_info["short_url"], 'data-turbolinks-track' => false, remote: false, target: '_blank' %></h4>
