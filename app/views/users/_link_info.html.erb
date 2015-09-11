@@ -17,7 +17,7 @@
               <span style="text-align:center">Top countries</span>
               <ul>
                 <% flash[:country].each do |link| %>
-                  <li><%= (link["country"].nil?) ? 'direct' : link["country"] %></li>
+                  <li><%= (link["country"].nil?) ? 'direct' : link["country"] %> <%= "(#{link['count']})"%></li>
                 <%end%>
               </ul>
           </div>
