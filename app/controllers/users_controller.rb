@@ -3,11 +3,13 @@ class UsersController < ApplicationController
 
   def show
     @user_link = @user.links.first
-    flash[:link_info] = Link.link_info(@user_link.id, session[:user_id]) unless flash[:link_info]
-    flash[:country] = View.top_countries(@user_link.id) unless flash[:country]
-    p flash[:country]
-    flash[:referrer] = View.top_referrers(@user_link.id) unless flash[:referrer]
-    p flash[:referrer]
+    if @user_link
+      flash[:link_info] = Link.link_info(@user_link.id, session[:user_id]) unless flash[:link_info]
+      flash[:country] = View.top_countries(@user_link.id) unless flash[:country]
+      p flash[:country]
+      flash[:referrer] = View.top_referrers(@user_link.id) unless flash[:referrer]
+      p flash[:referrer]
+    end
   end
 
   def new

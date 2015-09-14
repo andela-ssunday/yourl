@@ -25,7 +25,9 @@ $(document).ready(function(){
   })
 
   $(".index").click(function(){
-    $(".spinner").css("display", "block")
+    if($("#exampleInputEmail1").val().trim().length>0){
+      $(".spinner").css("display", "block")      
+    }
   })
 
   $(".list-group-item.show").click(function(){

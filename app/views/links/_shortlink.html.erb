@@ -1,0 +1,5 @@
+<div id="loader2">
+  <% unless flash[:short_url].nil? %>
+    <div name="short_url" class="short_url" style="width: 128% !important" > <%=link_to  "#{gethost+flash[:short_url]}", gethost+flash[:short_url], target: '_blank', style: "text-decoration:none" %> <span class="glyphicon glyphicon-share-alt sm" aria-hidden="true"></span></div>
+  <% end %>
+</div>
