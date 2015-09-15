@@ -23,7 +23,7 @@ class UsersController < ApplicationController
       session[:username] = @user.username
       redirect_to welcome_index_path
     else
-      flash[:notice] = "Error occured"
+      flash[:notice] = @user.errors
       redirect_to sign_up_path
     end
   end
