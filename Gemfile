@@ -33,7 +33,7 @@ gem 'faraday', '~> 0.9.1'
 gem 'geokit-rails', github: 'geokit/geokit-rails'
 
 gem 'geocoder'
-
+gem 'sidekiq'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
