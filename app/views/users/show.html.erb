@@ -1,7 +1,7 @@
 <div clas="container-fluid">
 <%= render partial: "layouts/nav"%>
   <div class="container">
-    <div class="row" style="height:600px">
+    <div class="row" style="height:800px">
       <div class="col-md-6 full-height">
         <div class="col-md-5 form-inline" style="margin-left: -15px">
             <%= form_for(Link.new) do |f| %>
@@ -22,7 +22,8 @@
 
               <% if @user.links %>
                 <% @user.links.each do |link|%>
-                  <%=link_to "#{gethost+link.short_url}", "/links/#{link.id}",remote: true, class:"list-group-item show" %>
+                <% #binding.pry %>
+                  <%=link_to "#{gethost+link.short_url}", "/links/#{link.id}",remote: true, class:( (flash[:link_info][0]["id"]==link.id) ? "list-group-item show my-active" : "list-group-item show") %>
 
 
                 <%end%>
@@ -35,6 +36,9 @@
           <div class="dot1"></div>
           <div class="dot2"></div>
         </div>
+
+        <%= render partial: 'link_info' %>
+
       </div>
     </div>
   </div>

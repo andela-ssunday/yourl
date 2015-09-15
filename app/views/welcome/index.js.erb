@@ -1,0 +1,5 @@
+$("form[data-remote]").on("ajax:success", function(e, data, status, xhr){
+  $("#loader").html("<%= escape_javascript(render partial: 'shortlink')%>")
+  $(".short_url").fadeOut(30000)
+})
+  // $("#loader").load(location.href + " #loader2");

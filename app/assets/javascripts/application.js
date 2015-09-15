@@ -19,9 +19,19 @@
 
 
 $(document).ready(function(){
-
   $(".show").click(function(){
+    $(".wrap").css("display", "none")
     $(".spinner").css("display", "block")
   })
 
+  $(".index").click(function(){
+    if($("#exampleInputEmail1").val().trim().length>0){
+      $(".spinner").css("display", "block")      
+    }
+  })
+
+  $(".list-group-item.show").click(function(){
+    $(".list-group-item.show").removeClass('my-active')
+    $(this).addClass('my-active')
+  })
 })

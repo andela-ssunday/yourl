@@ -6,9 +6,7 @@ class LinksController < ApplicationController
   end
 
   def show
-    flash[:link_info] = Link.link_info(params[:id], session[:user_id]) if current_user
-    flash[:country] = View.top_countries(params[:id])
-    flash[:referrer] = View.top_referrers(params[:id])
+    get_link_details(params[:id])
     redirect_to "/users/"+(session[:user_id]).to_s
   end
 
@@ -29,20 +27,27 @@ class LinksController < ApplicationController
     @user_link = find_user_links(@link.long_url) if current_user
     unless @user_link
       if @link.save
-        p "hello"
         flash[:success] = "Url Successfully shortened"
         flash[:short_url] = @link.short_url
+        get_link_details(@link.id)
         check_referrer
       end
     else
       flash[:success] = "Url Successfully shortened"
       flash[:short_url] = @user_link.short_url
+      get_link_details(@user_link.id)
       check_referrer
     end
   end
 
   def new
     @link = Link.new
+  end
+
+  def get_link_details(id)
+    flash[:link_info] = Link.link_info(id, session[:user_id]) if current_user
+    flash[:country] = View.top_countries(id)
+    flash[:referrer] = View.top_referrers(id)
   end
 
   private

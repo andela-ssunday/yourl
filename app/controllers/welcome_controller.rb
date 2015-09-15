@@ -14,7 +14,7 @@ class WelcomeController < ApplicationController
     def set_links
       @link = Link.find_by short_url: params[:id]
       if @link
-        View.create(link_id: @link.id, referrer: request.referrer, request_ip: request.remote_ip, country: request.location.country)
+        ViewWorker.perform_async(@link.id, request.referrer, request.remote_ip, request.location.country)
       else
         no_record_error
       end

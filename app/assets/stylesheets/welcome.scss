@@ -58,8 +58,12 @@ body{
   display: block !important;
   // padding: 0 0 !important;
   margin-bottom: 0 !important;
-  background-color: #fff !important;
-  // border-bottom: none !important;
+  background-color: white !important;
+  color: #555 !important;
+  margin-bottom: 10px !important;
+}
+.list-group-item.index{
+  background-color: white !important;
 }
 .list-group-item:first-child{
   float:none !important;

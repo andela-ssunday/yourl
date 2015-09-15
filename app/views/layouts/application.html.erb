@@ -4,17 +4,17 @@
   <title>Yourl</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <%= stylesheet_link_tag    'application', 'https://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext','https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css', 'https://cdn.shopify.com/s/files/1/0691/5403/t/82/assets/style.scss.css?16677709998824235896', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'https://cdn.shopify.com/s/files/1/0691/5403/t/82/assets/app.js?16677709998824235896', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'https://cdn.shopify.com/s/files/1/0691/5403/t/82/assets/app.js?16677709998824235896', 'data-turbolinks-track' => false %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body data-no-turbolink>
 
 <%= yield %>
 
 <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zeroclipboard/2.2.0/ZeroClipboard.Core.js"></script> -->
   <footer class="footer" style="margin-top:20px; background-color:whitesmoke; padding: 33px 0;">
     <div class="container">
-      <p class="text-muted">Built By <a href="https://github.com/andela-ssunday">Stephen</a> for <a href="andela.com">Andela</a></p>
+      <p class="text-muted">Built By <a href="https://github.com/andela-ssunday" target="_blank">Stephen</a> for <a href="http://andela.com" target="_blank">Andela</a></p>
     </div>
   </footer>
 </body>

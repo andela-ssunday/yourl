@@ -16,10 +16,9 @@ RSpec.feature "ShortenLinks", type: :feature do
 
     expect(page).to have_selector(".short_url")
 
-    path = find(:xpath, "//input[@class='short_url']").value
+    path = find(:xpath, "//div[@class='short_url']").text
 
-    link = path[0..-7]+":31337"+path[-6..-1]
-
+    link = path[0..-7]+":31337"+path[-6..-1] #Change port to port 31337
 
     visit link
 
